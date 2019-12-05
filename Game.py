@@ -24,11 +24,92 @@ Deck = {
     '13': 4
 }
 
+cardFaces = {
+    '1': """ _____
+|A    |
+|     |
+|  ^  |
+|     |
+|____V|""",
+    '2':   """ _____
+|2    |
+|  ^  |
+|     |
+|  ^  |
+|____Z|""",
+    '3': """ _____
+|3    |
+|  ^  |
+|  ^  |
+|  ^  |
+|____Ɛ|""",
+    '4': """ _____
+|4    |
+| ^ ^ |
+|     |
+| ^ ^ |
+|___ h|""",
+    '5': """ _____
+|5    |
+| ^ ^ |
+|  ^  |
+| ^ ^ |
+|____S|""",
+    '6': """ _____
+|6    |
+| ^ ^ |
+| ^ ^ |
+| ^ ^ |
+|____9|""",
+    '7': """ _____
+|7    |
+| ^ ^ |
+|^ ^ ^|
+| ^ ^ |
+|___ L|""",
+    '8': """ _____
+|8    |
+|^ ^ ^|
+| ^ ^ |
+|^ ^ ^|
+|____8|""",
+    '9': """ _____
+|9    |
+|^ ^ ^|
+|^ ^ ^|
+|^ ^ ^|
+|____6|""",
+    '10': """ _____
+|10  ^|
+|^ ^ ^|
+|^ ^ ^|
+|^ ^  |
+|^__0Ɩ|""",
+    '11': """    _ 
+   / |
+   | |
+/\_| |
+\____/""",
+    '12': """ ____
+/  _ \
+| / \ |
+| \_\\|
+\____\\""",
+    '13': """ _  __
+/ |/ /
+|   / 
+|   \ 
+\_|\_\ """
+}
+
 currentDeck = []
 playerCards = []
 botCards = []
 
-funds = int(input("""              __                                               
+funds = 0
+
+while funds < 100:
+    funds = int(input("""              __                                               
         _..-''--'----_.                                        
       ,''.-''| .---/ _`-._                                     
     ,' \ \  ;| | ,/ / `-._`-.                                  
@@ -49,7 +130,8 @@ funds = int(input("""              __
       /         /                                              
                / ~ SSt                                         
     
-    How many chips would you like? """))
+    How many chips would you like? (At least 100) """))
+    clear()
 
 for i in range(1, len(Deck) + 1):
     for j in range(Deck.get(str(i))):
@@ -71,5 +153,26 @@ for i in range(5):
 # prompt(print())
 # print(playerCards)
 
+for i in range(2):
+    clear()
+    print('    Drawing cards.')
+    sleep(0.35)
+    clear()
+    print('    Drawing cards..')
+    sleep(0.35)
+    clear()
+    print('    Drawing cards...')
+    sleep(0.35)
 clear()
-input('    Press Enter to exit...')
+
+#TODO: Put ascii art of the opponent
+for i in playerCards:
+    print(i)
+
+if (input("    Would you like to replace any cards? (yes/no) ")) == 'yes':
+    int(input("    Which card slot would you like to replace? (1 - 5)"))
+else:
+    print("    Revealing opponent's hand")
+
+# clear()
+input('    Press Enter to exit... ')
