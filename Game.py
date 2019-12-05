@@ -20,7 +20,7 @@ currentDeck = []
 playerCards = []
 botCards = []
 
-print("""              __                                               
+funds = int(input("""              __                                               
         _..-''--'----_.                                        
       ,''.-''| .---/ _`-._                                     
     ,' \ \  ;| | ,/ / `-._`-.                                  
@@ -39,7 +39,9 @@ print("""              __
         ;         ,'                                           
        /         /                                             
       /         /                                              
-               /                                               """)
+               / ~ SSt                                         
+    
+    How many chips would you like? """))
 
 for i in range(1, len(Deck) + 1):
     for j in range(Deck.get(str(i))):

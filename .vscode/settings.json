@@ -1,0 +1,5 @@
+{
+    "python.analysis.warnings": [
+        "\"python.analysis.disabled\": [\"unresolved-import\"]"
+    ]
+}
