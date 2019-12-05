@@ -185,8 +185,6 @@ clear()
 
 
 print("Your hand is: ")
-playerCards.sort()
-print(playerCards)
 for i in range(5):
     print(cardFaces.get(str(playerCards[i])))
 
@@ -214,6 +212,10 @@ for i in range(4):
             print(cardFaces.get(str(playerCards[i])))
 
     else:
+        print("Your final hand is: ")
+        for i in range(5):
+            print(cardFaces.get(str(playerCards[i])))
+        sleep(2.5)
         for i in range(2):
             clear()
             print("    Revealing opponent's hand.")
@@ -226,6 +228,10 @@ for i in range(4):
             sleep(0.25)
             clear()
         break
+
+playerCards.sort()
+botCards.sort()
+#TODO: Add cardchecking here
 
 # clear()
 input('    Press Enter to exit... ')
