@@ -20,7 +20,28 @@ currentDeck = []
 playerCards = []
 botCards = []
 
-for i in range(1, 14):
+print("""              __                                               
+        _..-''--'----_.                                        
+      ,''.-''| .---/ _`-._                                     
+    ,' \ \  ;| | ,/ / `-._`-.                                  
+  ,' ,',\ \( | |// /,-._  / /                                  
+  ;.`. `,\ \`| |/ / |   )/ /                                   
+ / /`_`.\_\ \| /_.-.'-''/ /                                    
+/ /_|_:.`. \ |;'`..')  / /                                     
+`-._`-._`.`.;`.\  ,'  / /                                      
+    `-._`.`/    ,'-._/ /                                       
+      : `-/     \`-.._/                                        
+      |  :      ;._ (                                          
+      :  |      \  ` \                                         
+       \         \   |                                         
+        :        :   ;                                         
+        |           /                                          
+        ;         ,'                                           
+       /         /                                             
+      /         /                                              
+               /                                               """)
+
+for i in range(1, len(Deck) + 1):
     for j in range(Deck.get(str(i))):
         currentDeck.append(str(i))
 #Copies availbable cards from the dictionary to a list
@@ -29,9 +50,16 @@ for i in range(5):
     r = random.randint(0, len(currentDeck) - 1)
     playerCards.append(currentDeck[r])
     currentDeck.remove(str(currentDeck[r]))
-#Appends selected cards from the currentDeck list to the player's and bot's hands, then removes them from currentDeck
+    Deck[str(playerCards[-1])] = Deck[str(playerCards[-1])] - 1
 
-for i in playerCards:
-    Deck[str(i)] = Deck[str(i)] - 1
-#Updates the dictionary to reflect the taken/removed cards
-#TODO move this into the above for loop
+    r = random.randint(0, len(currentDeck) - 1)
+    botCards.append(currentDeck[r])
+    currentDeck.remove(str(currentDeck[r]))
+    Deck[str(botCards[-1])] = Deck[str(botCards[-1])] - 1
+#Appends selected cards from the currentDeck list to the player's and bot's hands, then removes them from currentDeck and the dictionary
+
+# prompt(print())
+# print(playerCards)
+
+for i in botCards:
+    print(i)
