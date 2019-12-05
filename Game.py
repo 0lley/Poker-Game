@@ -1,5 +1,12 @@
 import random
-import warnings
+from os import system, name 
+from time import sleep 
+ 
+def clear(): 
+    if name == 'nt': 
+        _ = system('cls') 
+    else: 
+        _ = system('clear') 
 
 Deck = {
     '1': 4,
@@ -64,5 +71,5 @@ for i in range(5):
 # prompt(print())
 # print(playerCards)
 
-for i in botCards:
-    print(i)
+clear()
+input('    Press Enter to exit...')

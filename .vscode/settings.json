@@ -1,5 +1,6 @@
 {
     "python.analysis.warnings": [
         "\"python.analysis.disabled\": [\"unresolved-import\"]"
-    ]
+    ],
+    "python.linting.enabled": false
 }
