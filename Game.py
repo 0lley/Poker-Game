@@ -35,7 +35,7 @@ def handCheck():
     for i in playerCards:
         a = a*i
     print(a)
-    if math.factorial(playerCards[4])/math.factorial(playerCards[0]-1) == a:
+    if math.factorial(playerCards[4])/math.factorial((playerCards[0]-1)) == a:
         print("You have a flush!")
 
 funds = 0
