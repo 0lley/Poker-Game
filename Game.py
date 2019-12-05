@@ -21,9 +21,24 @@ Deck = {
     '10': 4,
     '11': 4,
     '12': 4,
-    '13': 4,
-    '14': 2
+    '13': 4
+    # '14': 2
 }
+
+currentDeck = []
+playerCards = []
+botCards = []
+
+def handCheck():
+    playerCards.sort()
+    a = 1
+    for i in playerCards:
+        a = a*i
+    print(a)
+    if playerCards[4]!/(playerCards[0]-1)! == a:
+        print("You have a flush!")
+
+funds = 0
 
 cardFaces = {
     '1': """     _____
@@ -109,12 +124,6 @@ cardFaces = {
   sjw ~ \__/ *"""
 }
 
-currentDeck = []
-playerCards = []
-botCards = []
-
-funds = 0
-
 while funds < 100:
     funds = int(input("""              __                                               
         _..-''--'----_.                                        
@@ -147,12 +156,12 @@ for i in range(1, len(Deck) + 1):
 
 for i in range(5):
     r = random.randint(0, len(currentDeck) - 1)
-    playerCards.append(currentDeck[r])
+    playerCards.append(int(currentDeck[r]))
     currentDeck.remove(str(currentDeck[r]))
     Deck[str(playerCards[-1])] = Deck[str(playerCards[-1])] - 1
 
     r = random.randint(0, len(currentDeck) - 1)
-    botCards.append(currentDeck[r])
+    botCards.append(int(currentDeck[r]))
     currentDeck.remove(str(currentDeck[r]))
     Deck[str(botCards[-1])] = Deck[str(botCards[-1])] - 1
 #Appends selected cards from the currentDeck list to the player's and bot's hands, then removes them from currentDeck and the dictionary
@@ -176,6 +185,8 @@ clear()
 
 
 print("Your hand is: ")
+playerCards.sort()
+print(playerCards)
 for i in range(5):
     print(cardFaces.get(str(playerCards[i])))
 
@@ -203,7 +214,17 @@ for i in range(4):
             print(cardFaces.get(str(playerCards[i])))
 
     else:
-        print("    Revealing opponent's hand")
+        for i in range(2):
+            clear()
+            print("    Revealing opponent's hand.")
+            sleep(0.25)
+            clear()
+            print("    Revealing opponent's hand..")
+            sleep(0.25)
+            clear()
+            print("    Revealing opponent's hand...")
+            sleep(0.25)
+            clear()
         break
 
 # clear()
