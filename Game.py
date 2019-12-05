@@ -91,10 +91,10 @@ cardFaces = {
     /\_| |
     \____/""",
     '12': """     ____
-    /  _ \
+    /  _  \    
     | / \ |
-    | \_\\|
-    \____\\""",
+    | \_\ |
+    \____\  """,
     '13': """     _  __
     / |/ /
     |   / 
@@ -167,20 +167,36 @@ clear()
 
 #TODO: Put ascii art of the opponent
 
-print("You hand is: " + """
-""" + cardFaces.get(str(playerCards[0])) + """
-""" + cardFaces.get(str(playerCards[1])) + """
-""" + cardFaces.get(str(playerCards[2])) + """
-""" + cardFaces.get(str(playerCards[3])) + """
-""" + cardFaces.get(str(playerCards[4])))
 
-if (input("    Would you like to replace any cards? (yes/no) ")) == 'yes':
-    r = random.randint(0, len(currentDeck) - 1)
-    playerCards[int(input("    Which card slot would you like to replace? (1 - 5 )"))] = (currentDeck[r])
-    currentDeck.remove(str(currentDeck[r]))
-    Deck[str(playerCards[-1])] = Deck[str(playerCards[-1])] - 1
-else:
-    print("    Revealing opponent's hand")
+print("Your hand is: ")
+for i in range(5):
+    print(cardFaces.get(str(playerCards[i])))
+
+for i in range(4):
+    if (input("    Would you like to replace any cards? (yes/no) ")) == 'yes':
+        r = random.randint(0, len(currentDeck) - 1)
+        playerCards[int(input("    Which card slot would you like to replace? (1 - 5) ")) - 1] = (currentDeck[r])
+        currentDeck.remove(str(currentDeck[r]))
+        Deck[str(playerCards[-1])] = Deck[str(playerCards[-1])] - 1
+
+        for i in range(2):
+            clear()
+            print('    Drawing a new card.')
+            sleep(0.25)
+            print('    Drawing a new card..')
+            sleep(0.25)
+            clear()
+            print('    Drawing a new card...')
+            sleep(0.25)
+        clear()
+        print("Your new hand is: ")
+        for i in range(5):
+            print(cardFaces.get(str(playerCards[i])))
+        print("""
+        """)
+    else:
+        print("    Revealing opponent's hand")
+        break
 
 # clear()
 input('    Press Enter to exit... ')
