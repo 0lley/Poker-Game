@@ -21,7 +21,8 @@ Deck = {
     '10': 4,
     '11': 4,
     '12': 4,
-    '13': 4
+    '13': 4,
+    '14': 2
 }
 
 cardFaces = {
@@ -99,7 +100,13 @@ cardFaces = {
     / |/ /
     |   / 
     |   \ 
-    \_|\_\ """
+    \_|\_\ """,
+    '14': """           *
+      __  /|
+     /_ \/ |__
+    *" \.--._ |
+       ( @@ )\/
+  sjw ~ \__/ *"""
 }
 
 currentDeck = []
@@ -183,17 +190,18 @@ for i in range(4):
             clear()
             print('    Drawing a new card.')
             sleep(0.25)
+            clear()
             print('    Drawing a new card..')
             sleep(0.25)
             clear()
             print('    Drawing a new card...')
             sleep(0.25)
+            clear()
         clear()
         print("Your new hand is: ")
         for i in range(5):
             print(cardFaces.get(str(playerCards[i])))
-        print("""
-        """)
+
     else:
         print("    Revealing opponent's hand")
         break
