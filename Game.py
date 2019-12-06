@@ -1,4 +1,5 @@
 import random
+from Ascii import dealerImg, cardFaces
 from os import system, name 
 from time import sleep 
  
@@ -53,113 +54,8 @@ def handCheck():
 
 funds = 0
 
-cardFaces = {
-    '1': """     _____
-    |A    |
-    |     |
-    |  ^  |
-    |     |
-    |____V|""",
-    '2':   """     _____
-    |2    |
-    |  ^  |
-    |     |
-    |  ^  |
-    |____Z|""",
-    '3': """     _____
-    |3    |
-    |  ^  |
-    |  ^  |
-    |  ^  |
-    |____Ɛ|""",
-    '4': """     _____
-    |4    |
-    | ^ ^ |
-    |     |
-    | ^ ^ |
-    |___ h|""",
-    '5': """     _____
-    |5    |
-    | ^ ^ |
-    |  ^  |
-    | ^ ^ |
-    |____S|""",
-    '6': """     _____
-    |6    |
-    | ^ ^ |
-    | ^ ^ |
-    | ^ ^ |
-    |____9|""",
-    '7': """     _____
-    |7    |
-    | ^ ^ |
-    |^ ^ ^|
-    | ^ ^ |
-    |___ L|""",
-    '8': """     _____
-    |8    |
-    |^ ^ ^|
-    | ^ ^ |
-    |^ ^ ^|
-    |____8|""",
-    '9': """     _____
-    |9    |
-    |^ ^ ^|
-    |^ ^ ^|
-    |^ ^ ^|
-    |____6|""",
-    '10': """     _____
-    |10  ^|
-    |^ ^ ^|
-    |^ ^ ^|
-    |^ ^  |
-    |^__0Ɩ|""",
-    '11': """        _ 
-       / |
-       | |
-    /\_| |
-    \____/""",
-    '12': """     ____
-    /  _  \    
-    | / \ |
-    | \_\ |
-    \____\  """,
-    '13': """     _  __
-    / |/ /
-    |   / 
-    |   \ 
-    \_|\_\ """,
-    '14': """           *
-      __  /|
-     /_ \/ |__
-    *" \.--._ |
-       ( @@ )\/
-  sjw ~ \__/ *"""
-}
-
 while funds < 100:
-    funds = int(input("""              __                                               
-        _..-''--'----_.                                        
-      ,''.-''| .---/ _`-._                                     
-    ,' \ \  ;| | ,/ / `-._`-.                                  
-  ,' ,',\ \( | |// /,-._  / /                                  
-  ;.`. `,\ \`| |/ / |   )/ /                                   
- / /`_`.\_\ \| /_.-.'-''/ /                                    
-/ /_|_:.`. \ |;'`..')  / /                                     
-`-._`-._`.`.;`.\  ,'  / /                                      
-    `-._`.`/    ,'-._/ /                                       
-      : `-/     \`-.._/                                        
-      |  :      ;._ (                                          
-      :  |      \  ` \                                         
-       \         \   |                                         
-        :        :   ;                                         
-        |           /                                          
-        ;         ,'                                           
-       /         /                                             
-      /         /                                              
-               / ~ SSt                                         
-    
-    How many chips would you like? (At least 100) """))
+    funds = int(input(dealerImg))
     clear()
 
 for i in range(1, len(Deck) + 1):
@@ -178,9 +74,6 @@ for i in range(5):
     currentDeck.remove(str(currentDeck[r]))
     Deck[str(botCards[-1])] = Deck[str(botCards[-1])] - 1
 #Appends selected cards from the currentDeck list to the player's and bot's hands, then removes them from currentDeck and the dictionary
-
-# prompt(print())
-# print(playerCards)
 
 #TODO: Put ascii art of the opponent
 
