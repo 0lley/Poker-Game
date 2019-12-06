@@ -8,6 +8,19 @@ def clear():
     else: 
         _ = system('clear') 
 
+def messageDisplay(times, speed, msg):
+    for i in range(times):
+        clear()
+        print('    ' + msg + '.')
+        sleep(speed)
+        clear()
+        print('    ' + msg + '..')
+        sleep(speed)
+        clear()
+        print('    ' + msg + '...')
+        sleep(speed)
+    clear()
+
 Deck = {
     '1': 4,
     '2': 4,
@@ -169,20 +182,9 @@ for i in range(5):
 # prompt(print())
 # print(playerCards)
 
-for i in range(2):
-    clear()
-    print('    Drawing cards.')
-    sleep(0.35)
-    clear()
-    print('    Drawing cards..')
-    sleep(0.35)
-    clear()
-    print('    Drawing cards...')
-    sleep(0.35)
-clear()
-
 #TODO: Put ascii art of the opponent
 
+messageDisplay(2, 0.25, 'Drawing cards')
 
 print("Your hand is: ")
 for i in range(5):
@@ -195,18 +197,7 @@ for i in range(4):
         currentDeck.remove(str(currentDeck[r]))
         Deck[str(playerCards[-1])] = Deck[str(playerCards[-1])] - 1
 
-        for i in range(2):
-            clear()
-            print('    Drawing a new card.')
-            sleep(0.25)
-            clear()
-            print('    Drawing a new card..')
-            sleep(0.25)
-            clear()
-            print('    Drawing a new card...')
-            sleep(0.25)
-            clear()
-        clear()
+        messageDisplay(2, 0.25, 'Drawing a new card')
         print("Your new hand is: ")
         for i in range(5):
             print(cardFaces.get(str(playerCards[i])))
@@ -216,17 +207,7 @@ for i in range(4):
         for i in range(5):
             print(cardFaces.get(str(playerCards[i])))
         sleep(2.5)
-        for i in range(2):
-            clear()
-            print("    Revealing opponent's hand.")
-            sleep(0.25)
-            clear()
-            print("    Revealing opponent's hand..")
-            sleep(0.25)
-            clear()
-            print("    Revealing opponent's hand...")
-            sleep(0.25)
-            clear()
+        messageDisplay(2, 0.25, "Revealing opponent's hand")
         break
 
 playerCards.sort()
